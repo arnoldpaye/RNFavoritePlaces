@@ -42,3 +42,8 @@ yarn-error.*
 
 # idea
 .idea/
+
+# environment files
+.env
+.env.*
+
