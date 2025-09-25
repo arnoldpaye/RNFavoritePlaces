@@ -13,5 +13,5 @@ export async function getAddress(lat, lng) {
   }
 
   const data = await response.json();
-  return data.result[0].freeformAddress;
+  return data.addresses[0].address.freeformAddress;
 }
