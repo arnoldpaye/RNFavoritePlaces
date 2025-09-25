@@ -31,7 +31,8 @@
         {
           "cameraPermission": "The app needs access to our camera in order to take photos."
         }
-      ]
+      ],
+      "expo-sqlite"
     ]
   }
 }
