@@ -11,6 +11,7 @@ import IconButton from "./components/UI/IconButton";
 import { init } from "./util/database";
 
 import { Colors } from "./constants/colors";
+import PlaceDetails from "./screens/PlaceDetails";
 
 const Stack = createNativeStackNavigator();
 
@@ -72,6 +73,7 @@ export default function App() {
               title: "Map",
             }}
           />
+          <Stack.Screen name={"PlaceDetails"} component={PlaceDetails} />
         </Stack.Navigator>
       </NavigationContainer>
     </>
