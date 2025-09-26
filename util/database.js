@@ -59,3 +59,16 @@ export async function fetchPlaces() {
   }
   return places;
 }
+
+export async function fetchPlaceDetails(id) {
+  if (!database) {
+    throw new Error("Database not initialized");
+  }
+
+  const result = await database.getFirstAsync(
+    "SELECT * FROM places WHERE id = ?",
+    [id],
+  );
+  console.log("RESULT", result);
+  return result;
+}
