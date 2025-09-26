@@ -20,6 +20,8 @@ export async function init() {
 }
 
 export async function insertPlace(place) {
+  database = await SQLite.openDatabaseAsync("places.db");
+
   if (!database) {
     throw new Error("Database not initialized");
   }
@@ -37,6 +39,8 @@ export async function insertPlace(place) {
 }
 
 export async function fetchPlaces() {
+  database = await SQLite.openDatabaseAsync("places.db");
+
   if (!database) {
     throw new Error("Database not initialized");
   }
@@ -61,6 +65,8 @@ export async function fetchPlaces() {
 }
 
 export async function fetchPlaceDetails(id) {
+  database = await SQLite.openDatabaseAsync("places.db");
+
   if (!database) {
     throw new Error("Database not initialized");
   }
@@ -69,6 +75,15 @@ export async function fetchPlaceDetails(id) {
     "SELECT * FROM places WHERE id = ?",
     [id],
   );
-  console.log("RESULT", result);
-  return result;
+
+  return new Place(
+    result.title,
+    result.imageUri,
+    {
+      lat: result.lat,
+      lng: result.lng,
+      address: result.address,
+    },
+    result.id,
+  );
 }
